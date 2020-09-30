@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/core-build/serve.schema.json",
+  "port": 4321,
+  "https": true,
+  "serveConfigurations": {
+    "default": {
+      "pageUrl": "https://aura.digikala.com/Commercial/KM/SitePages/Home.aspx",
+      "customActions": {
+        "ed5fd73d-a0c6-4a08-9ea3-7f0036c1ffe5": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message"
+          }
+        }
+      }
+    },
+    "helloWorld": {
+      "pageUrl": "https://aura.digikala.com/Commercial/KM/SitePages/Home.aspx",
+      "customActions": {
+        "ed5fd73d-a0c6-4a08-9ea3-7f0036c1ffe5": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message"
+          }
+        }
+      }
+    }
+  }
+}
