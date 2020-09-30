@@ -1,13 +1,11 @@
-import { override } from '@microsoft/decorators';
-import { Log } from '@microsoft/sp-core-library';
-import {
-  BaseApplicationCustomizer
-} from '@microsoft/sp-application-base';
-import { Dialog } from '@microsoft/sp-dialog';
+import { override } from "@microsoft/decorators";
+import { Log } from "@microsoft/sp-core-library";
+import { BaseApplicationCustomizer } from "@microsoft/sp-application-base";
+import { Dialog } from "@microsoft/sp-dialog";
 
-import * as strings from 'HelloWorldApplicationCustomizerStrings';
+import * as strings from "HelloWorldApplicationCustomizerStrings";
 
-const LOG_SOURCE: string = 'HelloWorldApplicationCustomizer';
+const LOG_SOURCE: string = "HelloWorldApplicationCustomizer";
 
 /**
  * If your command set uses the ClientSideComponentProperties JSON input,
@@ -16,23 +14,28 @@ const LOG_SOURCE: string = 'HelloWorldApplicationCustomizer';
  */
 export interface IHelloWorldApplicationCustomizerProperties {
   // This is an example; replace with your own property
-  testMessage: string;
+  cssUrl: string;
 }
 
 /** A Custom Action which can be run during execution of a Client Side Application */
-export default class HelloWorldApplicationCustomizer
-  extends BaseApplicationCustomizer<IHelloWorldApplicationCustomizerProperties> {
-
+export default class HelloWorldApplicationCustomizer extends BaseApplicationCustomizer<
+  IHelloWorldApplicationCustomizerProperties
+> {
   @override
   public onInit(): Promise<void> {
     Log.info(LOG_SOURCE, `Initialized ${strings.Title}`);
-
-    let message: string = this.properties.testMessage;
-    if (!message) {
-      message = '(No properties were provided.)';
+    alert("afarin");
+    let cssUrl: string = this.properties.cssUrl;
+    if (cssUrl) {
+      // inject the style sheet
+      const head: any =
+        document.getElementsByTagName("head")[0] || document.documentElement;
+      let customStyle: HTMLLinkElement = document.createElement("link");
+      customStyle.href = cssUrl;
+      customStyle.rel = "stylesheet";
+      customStyle.type = "text/css";
+      head.insertAdjacentElement("beforeEnd", customStyle);
     }
-
-    Dialog.alert(`Hello from ${strings.Title}:\n\n${message}`);
 
     return Promise.resolve();
   }
