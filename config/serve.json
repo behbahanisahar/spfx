@@ -9,7 +9,7 @@
         "ed5fd73d-a0c6-4a08-9ea3-7f0036c1ffe5": {
           "location": "ClientSideExtension.ApplicationCustomizer",
           "properties": {
-            "cssUrl": "https://aura.digikala.com/Commercial/KM/SiteAssets/customCss.css"
+            "cssUrl": "/SiteAssets/customCss.css"
           }
         }
       }
@@ -20,7 +20,7 @@
         "ed5fd73d-a0c6-4a08-9ea3-7f0036c1ffe5": {
           "location": "ClientSideExtension.ApplicationCustomizer",
           "properties": {
-            "cssUrl": "https://aura.digikala.com/Commercial/KM/SiteAssets/customCss.css"
+            "cssUrl": "/SiteAssets/customCss.css"
           }
         }
       }
